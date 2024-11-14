@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="bmiCalculator.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>BMI Calculator</h1>
+      </header>
+      <div class="content">
+        <section class="calculator">
+          <nav>
+            <button id="usUnits" aria-current="page">US Units</button>
+            <button id="metricUnits" class="active">Metric Units</button>
+            <button id="otherUnits">Other Units</button>
+          </nav>
+
+          <label for="age">Umur</label>
+          <input type="number" id="age" placeholder="2 - 120" />
+
+          <label>Jenis Kelamin</label>
+          <div class="gender">
+            <input type="radio" id="male" name="gender" value="Male" checked />
+            <label for="male">Laki-laki</label>
+            <input type="radio" id="female" name="gender" value="Female" />
+            <label for="female">Perempuan</label>
+          </div>
+
+          <label for="height">Tinggi (cm)</label>
+          <input type="number" id="height" placeholder="cm" />
+
+          <label for="weight">Berat (kg)</label>
+          <input type="number" id="weight" placeholder="kg" />
+
+          <button id="calculateBtn">Hitung</button>
+          <button id="resetBtn">Bersihkan</button>
+        </section>
+
+        <section id="resultSection" class="result" style="display: none">
+          <h2>Hasil</h2>
+          <p id="resultText"></p>
+          <canvas id="bmiChart"></canvas>
+          <ul id="bmiDetails">
+            <li>Rentang BMI Sehat: <span id="bmiRange"></span></li>
+            <li>Berat Sehat untuk Tinggi: <span id="weightRange"></span></li>
+            <li>BMI Prime: <span id="bmiPrime"></span></li>
+            <li>Ponderal Index: <span id="ponderalIndex"></span></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

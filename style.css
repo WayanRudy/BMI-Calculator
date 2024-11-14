@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+header {
+  background-color: #4caf50;
+  padding: 16px;
+  color: #ffffff;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.5em;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.calculator {
+  flex: 1 1 45%;
+  margin-right: 20px;
+}
+
+.result {
+  flex: 1 1 45%;
+  display: none;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+nav button {
+  color: #4caf50;
+  text-decoration: none;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border-radius: 4px;
+  background-color: rgba(76, 175, 80, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+nav button.active,
+nav button:focus {
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.gender {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gender input[type="radio"] {
+  margin: 0;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  font-size: 1em;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#calculateBtn {
+  background-color: #4caf50;
+}
+
+#calculateBtn:hover {
+  background-color: #45a049;
+}
+
+#resetBtn {
+  background-color: #ccc;
+}
+
+.result h2 {
+  color: #4caf50;
+}
+
+.result p {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#bmiDetails {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+}
+
+#bmiDetails li {
+  font-size: 0.9em;
+  color: #555;
+}
+
+canvas {
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .calculator,
+  .result {
+    flex: 1 1 100%;
+    margin-right: 0;
+  }
+
+  header h1 {
+    font-size: 1.2em;
+  }
+
+  button {
+    font-size: 0.9em;
+  }
+
+  #bmiDetails li {
+    font-size: 0.8em;
+  }
+}
