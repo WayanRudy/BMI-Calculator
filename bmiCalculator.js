@@ -1,6 +1,5 @@
 let bmiChart;
 
-// Fungsi untuk menghitung BMI berdasarkan unit
 function calculateBMI() {
   const heightInput = Number(document.getElementById("height").value);
   const weightInput = Number(document.getElementById("weight").value);
@@ -8,30 +7,23 @@ function calculateBMI() {
   const resultText = document.getElementById("resultText");
   const currentUnit = document.querySelector("nav .active").textContent.trim();
 
-  // Validasi input
   if (!heightInput || !weightInput || !age || age < 2 || age > 120) {
     resultText.textContent = "Mohon masukkan nilai input yang valid.";
     document.getElementById("resultSection").style.display = "block";
     return;
   }
 
-  // Konversi tinggi dan berat sesuai unit yang dipilih
   const { height, weight } = convertUnits(currentUnit, heightInput, weightInput);
 
-  // Menghitung BMI
   const bmi = weight / (height * height);
   const bmiRounded = bmi.toFixed(1);
   const category = getCategory(bmi);
 
-  // Menampilkan hasil BMI dan kategori
   resultText.textContent = `BMI = ${bmiRounded} (${category})`;
   renderChart(bmiRounded);
-
-  // Menampilkan Rentang BMI Sehat
   displayBMIResults(height, weight, bmi);
 }
 
-// Fungsi untuk mengonversi unit tinggi dan berat
 function convertUnits(unit, heightInput, weightInput) {
   let height, weight;
 
@@ -49,7 +41,6 @@ function convertUnits(unit, heightInput, weightInput) {
   return { height, weight };
 }
 
-// Fungsi untuk menentukan kategori BMI
 function getCategory(bmi) {
   if (bmi < 18.5) return "Kurus";
   if (bmi < 25) return "Normal";
@@ -57,7 +48,6 @@ function getCategory(bmi) {
   return "Obesitas";
 }
 
-// Fungsi untuk menampilkan hasil BMI rinci
 function displayBMIResults(height, weight, bmi) {
   const minHealthyWeight = (18.5 * height * height).toFixed(1);
   const maxHealthyWeight = (24.9 * height * height).toFixed(1);
@@ -73,7 +63,6 @@ function displayBMIResults(height, weight, bmi) {
   document.getElementById("resultSection").style.display = "block";
 }
 
-// Fungsi untuk menampilkan grafik
 function renderChart(bmi) {
   const ctx = document.getElementById("bmiChart").getContext("2d");
 
@@ -104,7 +93,6 @@ function renderChart(bmi) {
   });
 }
 
-// Fungsi untuk mereset semua field input dan hasil
 function resetFields() {
   document.getElementById("age").value = "";
   document.getElementById("height").value = "";
@@ -118,6 +106,5 @@ function resetFields() {
   if (bmiChart) bmiChart.destroy();
 }
 
-// Event listener untuk tombol
 document.getElementById("calculateBtn").addEventListener("click", calculateBMI);
 document.getElementById("resetBtn").addEventListener("click", resetFields);
